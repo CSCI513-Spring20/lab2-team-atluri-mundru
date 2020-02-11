@@ -1,36 +1,40 @@
+import java.awt.Point;
 
 public class Ship {
-	Point currentLocation;
-	OceanMap oceanMap;
-	
-	public Ship(OceanMap oceanMap) {
-		this.oceanMap = oceanMap;
-		currentLocation = oceanMap.getShipLocation();
+	int xcoordinate;
+	int ycoordinate;
+
+	public Ship(int x, int y) {
+
+		xcoordinate = x;
+		ycoordinate = y;
+	}
+
+	public void goEast() {
+		if (xcoordinate != 9) {
+			xcoordinate=xcoordinate+1;
+		}
+	}
+
+	public void goWest() {
+		if (xcoordinate != 0) {
+			xcoordinate--;
+		}
+	}
+
+	public void goNorth() {
+		if (ycoordinate != 0) {
+			ycoordinate=ycoordinate-1;
+		}
+	}
+
+	public void goSouth() {
+		if (ycoordinate != 9) {
+			ycoordinate++;
+		}
 	}
 	public Point getShipLocation() {
-		return currentLocation;
+		return new Point(xcoordinate, ycoordinate);
 	}
-	public void goEast() {
-		if(currentLocation.x<oceanMap.getDimensions()-1 && oceanMap.lsOcean(curretnLocation.x=1 , currentLocation.y )
-				{
-			 currentLocation.x++;
-		}
-	}
-	public goWest() {
-		if(curretnLocation.x >0 && oceanMap.lsOcean(currentLocation.x=1 , currentLocation.y)) {
-			currentLocation.x--;
-			
-		}
-	}
-	public goNorth() {
-		if(curremtLocation.y >0 && oceanMap.lsOcean(currentLocation.x , currentLocation.y-1))
-		{
-			currentLocation.y--;
-		}
-	}
-	public goSouth() {
-		if(currentLocation.y < oceanMap.getDimensions()-1 && oceanMap.lsOcean(currentLocation.x , currentLocation.y-1)) {
-			currentLocation.y++;
-		}
-	}
+
 }
